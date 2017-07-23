@@ -8,20 +8,63 @@ for (let i = 0; i < DATA_4_CHART.length; i++) {
     name = DATA_4_CHART[i].name.first + ' ' + DATA_4_CHART[i].name.last;
     nameArr.push(name);
 
-    var dollars = Number(DATA_4_CHART[i].balance.replace(/[^0-9\.]+/g,""));
-    console.log('dollars', dollars, 'type: ', typeof(dollars));
-  chartArr.push(dollars);
+  //   var dollars = Number(DATA_4_CHART[i].balance.replace(/[^0-9\.]+/g,""));
+  //   console.log('dollars', dollars, 'type: ', typeof(dollars));
+  // chartArr.push(dollars);
+    chartArr.push(DATA_4_CHART[i].age);
   console.log(chartArr);
 }
+//radar
+var myRadarChart = new Chart(ctx, {
+    type: 'radar',
+    data: {
+                labels: nameArr,
+                datasets: [{
+                    label: 'age',
+                    data: chartArr,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(186, 212, 85, 0.2)'
+
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        '#bad455'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+    options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+});
+
+
 
 //line
-var myLineChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-            labels: nameArr,
-            datasets: [{
-                label: 'balance',
-                data: chartArr,
+// var myLineChart = new Chart(ctx, {
+//     type: 'line',
+//     data: {
+//             labels: nameArr,
+//             datasets: [{
+//                 label: 'balance',
+//                 data: chartArr,
         //         backgroundColor: [
         //             'rgba(255, 99, 132, 0.2)',
         //             'rgba(54, 162, 235, 0.2)',
@@ -42,18 +85,18 @@ var myLineChart = new Chart(ctx, {
         //             '#bad455'
         //         ],
         //         borderWidth: 1
-            }]
-        },
-    options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero:true
-                    }
-                }]
-            }
-        }
-});
+//             }]
+//         },
+//     options: {
+//             scales: {
+//                 yAxes: [{
+//                     ticks: {
+//                         beginAtZero:true
+//                     }
+//                 }]
+//             }
+//         }
+// });
 
 
 //bar graph
