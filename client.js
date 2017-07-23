@@ -9,9 +9,7 @@ for (let i = 0; i < DATA_4_CHART.length; i++) {
     nameArr.push(name);
   chartArr.push(DATA_4_CHART[i].age);
 }
-for (let i = 0; i < DATA_4_CHART.length; i++) {
 
-}
 //line
 var myLineChart = new Chart(ctx, {
     type: 'line',
