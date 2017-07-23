@@ -7,7 +7,11 @@ var nameArr =[];
 for (let i = 0; i < DATA_4_CHART.length; i++) {
     name = DATA_4_CHART[i].name.first + ' ' + DATA_4_CHART[i].name.last;
     nameArr.push(name);
-  chartArr.push(DATA_4_CHART[i].age);
+
+    var dollars = Number(DATA_4_CHART[i].balance.replace(/[^0-9\.]+/g,""));
+    console.log('dollars', dollars, 'type: ', typeof(dollars));
+  chartArr.push(dollars);
+  console.log(chartArr);
 }
 
 //line
@@ -16,7 +20,7 @@ var myLineChart = new Chart(ctx, {
     data: {
             labels: nameArr,
             datasets: [{
-                label: 'age',
+                label: 'balance',
                 data: chartArr,
         //         backgroundColor: [
         //             'rgba(255, 99, 132, 0.2)',
